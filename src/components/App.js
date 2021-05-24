@@ -4,7 +4,7 @@ import { authService } from "fbase";
 
 function App() {
   const [init, setInit] = useState(false);
-  const [userObj, setUserObj] = useState(null);
+  const [userObj, setUserObj] = useState(null); // 다른 곳에서 userObj를 원할 수도 있기 때문에 앱의 가장 위(상위)에 존재함.
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       // 로그인, 로그아웃, 앱 초기화 시에 발생
@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       {init ? (
-        <AppRouter isLoggedIn={userObj}} userObj={userObj} />
+        <AppRouter isLoggedIn={userObj} userObj={userObj} />
       ) : (
         "Initializing..."
       )}

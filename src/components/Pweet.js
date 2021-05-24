@@ -2,7 +2,7 @@ import { dbService } from "fbase";
 import React, { useState } from "react";
 
 const Pweet = ({ pweetObj, isOwner }) => {
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(false); // Pweet 수정 여부 확인 state
   const [newPweet, setNewPweet] = useState(pweetObj.text);
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this pweet?");
@@ -29,17 +29,21 @@ const Pweet = ({ pweetObj, isOwner }) => {
     <div>
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
-            <input
-              type="text"
-              placeholder="Edit your pweet"
-              value={newPweet}
-              required
-              onChange={onChange}
-            />
-            <input type="submit" value="Update Pweet" />
-          </form>
-          <button onClick={toggleEditing}>Cancel</button>
+          {isOwner && (
+            <>
+              <form onSubmit={onSubmit}>
+                <input
+                  type="text"
+                  placeholder="Edit your pweet"
+                  value={newPweet}
+                  required
+                  onChange={onChange}
+                />
+                <input type="submit" value="Update Pweet" />
+              </form>
+              <button onClick={toggleEditing}>Cancel</button>{" "}
+            </>
+          )}
         </>
       ) : (
         <>
