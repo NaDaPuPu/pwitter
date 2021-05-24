@@ -30,6 +30,17 @@ const Home = ({ userObj }) => {
     } = event;
     setPweet(value);
   };
+  const onFileChange = (event) => {
+    const {
+      target: { files },
+    } = event;
+    const theFile = files[0]; // 파일을 가져옴
+    const reader = new FileReader(); // FileReader를 만듦
+    reader.onloadend = (finishedEvent) => {
+      console.log(finishedEvent);
+    };
+    reader.readAsDataURL(theFile);
+  };
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -40,6 +51,7 @@ const Home = ({ userObj }) => {
           placeholder="What's on your mind?"
           maxLength={120}
         />
+        <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="Pweet" />
       </form>
       <div>
