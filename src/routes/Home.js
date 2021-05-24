@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 const Home = ({ userObj }) => {
   const [pweet, setPweet] = useState("");
   const [pweets, setPweets] = useState([]);
+  const [attachment, setAttachment] = useState();
   useEffect(() => {
     dbService.collection("pweets").onSnapshot((snapshot) => {
       // database에 변화가 있을 때, onSnapshot으로 snapshot 받아옴
@@ -38,9 +39,14 @@ const Home = ({ userObj }) => {
     const reader = new FileReader(); // FileReader를 만듦
     reader.onloadend = (finishedEvent) => {
       console.log(finishedEvent);
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      setAttachment(result);
     };
-    reader.readAsDataURL(theFile);
+    reader.readAsDataURL(theFile); // 이미지 URL 획득
   };
+  const onClearAttachment = () => setAttachment(null);
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -53,6 +59,12 @@ const Home = ({ userObj }) => {
         />
         <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="Pweet" />
+        {attachment && (
+          <div>
+            <img src={attachment} width="50px" height="50px" />
+            <button onClick={onClearAttachment}>Clear</button>
+          </div>
+        )}
       </form>
       <div>
         {pweets.map((pweet) => (
