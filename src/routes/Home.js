@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 const Home = ({ userObj }) => {
   const [pweet, setPweet] = useState("");
   const [pweets, setPweets] = useState([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
   useEffect(() => {
     dbService.collection("pweets").onSnapshot((snapshot) => {
       // database에 변화가 있을 때, onSnapshot으로 snapshot 받아옴
