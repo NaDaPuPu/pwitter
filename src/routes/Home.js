@@ -1,5 +1,6 @@
 import Pweet from "components/Pweet";
-import { dbService } from "fbase";
+import { v4 as uuidv4 } from "uuid";
+import { dbService, storageService } from "fbase";
 import React, { useEffect, useState } from "react";
 
 const Home = ({ userObj }) => {
@@ -18,12 +19,23 @@ const Home = ({ userObj }) => {
   }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.collection("pweets").add({
+    let attachmentUrl = "";
+    if (attachment !== "") {
+      const attachmentRef = storageService
+        .ref()
+        .child(`${userObj.uid}/${uuidv4()}`);
+      const response = await attachmentRef.putString(attachment, "data_url");
+      attachmentUrl = await response.ref.getDownloadURL();
+    }
+    const pweetObj = {
       text: pweet,
       createdAt: Date.now(),
       creatorId: userObj.uid,
-    });
+      attachmentUrl,
+    };
+    await dbService.collection("pweets").add(pweetObj);
     setPweet("");
+    setAttachment("");
   };
   const onChange = (event) => {
     const {
@@ -38,7 +50,6 @@ const Home = ({ userObj }) => {
     const theFile = files[0]; // 파일을 가져옴
     const reader = new FileReader(); // FileReader를 만듦
     reader.onloadend = (finishedEvent) => {
-      console.log(finishedEvent);
       const {
         currentTarget: { result },
       } = finishedEvent;
