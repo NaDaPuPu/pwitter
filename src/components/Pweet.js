@@ -1,4 +1,4 @@
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
 
 const Pweet = ({ pweetObj, isOwner }) => {
@@ -8,6 +8,7 @@ const Pweet = ({ pweetObj, isOwner }) => {
     const ok = window.confirm("Are you sure you want to delete this pweet?");
     if (ok) {
       await dbService.doc(`pweets/${pweetObj.id}`).delete();
+      await storageService.refFromURL(pweetObj.attachmentUrl).delete(); // 사진 삭제
     }
   };
   const toggleEditing = () => setEditing((prev) => !prev);
