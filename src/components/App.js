@@ -10,15 +10,31 @@ function App() {
       // 로그인, 로그아웃, 앱 초기화 시에 발생
       if (user) {
         // 로그인 한 user가 존재 시(user가 존재할 경우)
-        setUserObj(user); // userObj에 user 입력\
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args) => user.updateProfile(args),
+        }); // userObj에 user 입력\
       }
       setInit(true); // 앱이 준비가 되었을 때, init state를 true로 설정
     });
   }, []);
+  const refreshUser = () => {
+    const user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args),
+    });
+  };
   return (
     <>
       {init ? (
-        <AppRouter isLoggedIn={userObj} userObj={userObj} />
+        <AppRouter
+          refreshUser={refreshUser}
+          isLoggedIn={userObj}
+          userObj={userObj}
+        />
       ) : (
         "Initializing..."
       )}
