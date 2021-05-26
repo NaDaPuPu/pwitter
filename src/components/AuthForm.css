@@ -1,0 +1,75 @@
+.autnFormContainer {
+  max-width: 320px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginText {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 700;
+  font-size: 31px;
+  color: #d9d9d9;
+}
+
+.authInput {
+  max-width: 320px;
+  width: 100%;
+  border: 0 solid black;
+  border-color: rgb(47, 51, 54);
+  border-width: 1px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 16px;
+  background-color: black;
+  color: white;
+
+  font-size: 17px;
+
+  transition: 0.1s;
+}
+
+.authInput:focus {
+  box-shadow: rgb(29, 161, 242) 0px 0px 0px 1px;
+  outline-style: none;
+  outline-color: rgb(29, 161, 242);
+  border-color: rgb(29, 161, 242);
+}
+
+.authSignIn {
+  text-align: center;
+  width: 330px;
+  height: 48px;
+  margin-top: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-radius: 9999px;
+  outline-style: none;
+  background-color: rgb(29, 161, 242);
+
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+
+  transition: 0.2s;
+}
+
+.authSignIn:hover {
+  background-color: rgb(26, 145, 218);
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0em;
+}

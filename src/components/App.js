@@ -15,6 +15,8 @@ function App() {
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
         }); // userObj에 user 입력\
+      } else {
+        setUserObj(null);
       }
       setInit(true); // 앱이 준비가 되었을 때, init state를 true로 설정
     });
