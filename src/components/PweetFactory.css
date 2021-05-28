@@ -1,0 +1,93 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pweetFactoryContainer {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(47, 51, 54);
+  width: 100%;
+  text-align: center;
+}
+
+.pweetFactoryContainer div:not(:nth-last-child(1)) {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(47, 51, 54);
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.pweetFactoryContainer .homeDiv {
+  display: flex;
+  align-items: center;
+  height: 53px;
+  font-size: 20px;
+  font-weight: 800;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.pweetFactoryContainer .pweetContainer {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.mainContainer img {
+  width: 48px;
+  height: 48px;
+  margin-top: 10px;
+  margin-left: 15px;
+  border-radius: 9999px;
+}
+
+.pweetContainer .pweetText {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  height: 56px;
+  text-align: start;
+}
+
+.inputContainer {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  flex-direction: row;
+}
+
+.inputContainer .addImage {
+  flex-grow: 1;
+}
+
+.inputContainer .submitButton {
+  align-self: flex-end;
+
+  width: 90px;
+  height: 38px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 9999px;
+  background-color: rgb(29, 161, 242);
+
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+
+  transition: 0.2s;
+}
+
+.inputContainer .submitButton:hover {
+  background-color: rgb(26, 145, 218);
+}
