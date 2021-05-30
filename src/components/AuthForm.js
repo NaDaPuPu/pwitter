@@ -48,7 +48,7 @@ const AuthForm = () => {
           style={{ marginLeft: 5 }}
         />
         <div className="loginText">프위터 로그인</div>
-        <form onSubmit={onSubmit} className="inputContainer">
+        <form onSubmit={onSubmit} className="authInputContainer">
           <input
             name="email"
             type="email"

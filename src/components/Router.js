@@ -10,10 +10,12 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <Router>
       <div className="routerContainer">
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <header className="item">
             <Navigation userObj={userObj} />
           </header>
+        ) : (
+          <header></header>
         )}
         <Switch>
           <main className="item">
@@ -35,7 +37,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             )}
           </main>
         </Switch>
-        <footer className="item"></footer>
+        {isLoggedIn ? <footer className="item"></footer> : <footer></footer>}
       </div>
     </Router>
   );

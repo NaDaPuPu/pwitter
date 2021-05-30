@@ -1,4 +1,4 @@
-.autnFormContainer {
+.authFormContainer {
   max-width: 320px;
   max-width: 320px;
   display: flex;
@@ -54,6 +54,7 @@
   border-radius: 9999px;
   outline-style: none;
   background-color: rgb(29, 161, 242);
+  cursor: pointer;
 
   font-size: 15px;
   font-weight: 700;
@@ -66,7 +67,7 @@
   background-color: rgb(26, 145, 218);
 }
 
-.inputContainer {
+.authInputContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
