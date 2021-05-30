@@ -7,6 +7,9 @@
 .routerContainer .item {
   flex-grow: 1;
   flex-basis: 0;
+  border-right-color: rgb(47, 51, 54);
+  border-right-style: solid;
+  border-right-width: 1px;
 }
 
 .routerContainer .homeContainer {
@@ -21,9 +24,6 @@
 
 .navContainer {
   height: 100%;
-  border-right-color: rgb(47, 51, 54);
-  border-right-style: solid;
-  border-right-width: 1px;
 }
 
 .navContainer ul {

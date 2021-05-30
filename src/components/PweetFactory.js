@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { authService, dbService, storageService } from "fbase";
 import "./PweetFactory.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 const PweetFactory = ({ userObj }) => {
   const [pweet, setPweet] = useState("");
@@ -53,7 +55,7 @@ const PweetFactory = ({ userObj }) => {
       <div className="mainContainer">
         <img src={authService.currentUser.photoURL} />
         <form className="formContainer" onSubmit={onSubmit}>
-          <div className="pweetContainer">
+          <div className="pweetInputContainer">
             <input
               value={pweet}
               onChange={onChange}
@@ -64,12 +66,21 @@ const PweetFactory = ({ userObj }) => {
             />
           </div>
           <div className="inputContainer">
-            <input
-              className="addImage"
-              type="file"
-              accept="image/*"
-              onChange={onFileChange}
-            />
+            <div className="addContainer">
+              <label htmlFor="addImage" className="addImage">
+                <FontAwesomeIcon
+                  icon={faImage}
+                  style={{ width: 22.5, height: 22.5 }}
+                />
+              </label>
+              <input
+                id="addImage"
+                type="file"
+                accept="image/*"
+                onChange={onFileChange}
+              />
+            </div>
+
             <input className="submitButton" type="submit" value="프윗하기" />
             {attachment && (
               <div className="imgContainer">

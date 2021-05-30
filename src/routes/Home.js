@@ -18,6 +18,7 @@ const Home = ({ userObj }) => {
   return (
     <div className="homeContainer">
       <PweetFactory userObj={userObj} />
+      <div className="space"></div>
       <div>
         {pweets.map((pweet) => (
           <Pweet

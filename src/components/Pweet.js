@@ -1,5 +1,7 @@
-import { dbService, storageService } from "fbase";
+import { authService, dbService, storageService } from "fbase";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const Pweet = ({ pweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false); // Pweet 수정 여부 확인 state
@@ -47,18 +49,32 @@ const Pweet = ({ pweetObj, isOwner }) => {
           )}
         </>
       ) : (
-        <>
-          <h4>{pweetObj.text}</h4>
-          {pweetObj.attachmentUrl && (
-            <img src={pweetObj.attachmentUrl} width="50px" height="50px" />
-          )}
-          {isOwner && (
-            <>
-              <button onClick={onDeleteClick}>Delete Pweet</button>
-              <button onClick={toggleEditing}>Edit Pweet</button>
-            </>
-          )}
-        </>
+        <div className="pweetContainer">
+          <img src={authService.currentUser.photoURL} />
+          <div className="pweetTextContainer">
+            <div className="pweetCreatorContainer">
+              <span>사용자</span>
+              <span className="pweetCreatorUid">@{pweetObj.creatorId}</span>
+            </div>
+
+            <h4>{pweetObj.text}</h4>
+            {pweetObj.attachmentUrl && (
+              <img src={pweetObj.attachmentUrl} width="50px" height="50px" />
+            )}
+            {isOwner && (
+              <div className="pweetButtonContainer">
+                <label htmlFor="delete">
+                  {<FontAwesomeIcon icon={faTrashAlt} />}
+                </label>
+                <button id="delete" onClick={onDeleteClick}></button>
+                <label htmlFor="edit">
+                  {<FontAwesomeIcon icon={faEdit} />}
+                </label>
+                <button id="edit" onClick={toggleEditing}></button>
+              </div>
+            )}
+          </div>
+        </div>
       )}
     </div>
   );
