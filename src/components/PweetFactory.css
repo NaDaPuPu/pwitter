@@ -25,6 +25,14 @@
   border-bottom-color: rgb(47, 51, 54);
 }
 
+.mainContainer .profileImg {
+  width: 48px;
+  height: 48px;
+  margin-top: 10px;
+  margin-left: 15px;
+  border-radius: 9999px;
+}
+
 .pweetFactoryContainer .homeDiv {
   background-color: black;
   position: sticky;
@@ -56,12 +64,39 @@
   border-bottom-color: rgb(47, 51, 54);
 }
 
-.mainContainer img {
-  width: 48px;
-  height: 48px;
-  margin-top: 10px;
-  margin-left: 15px;
+.imgContainer {
+  position: relative;
+  width: 100%;
+  max-height: 40%;
+}
+
+.imgContainer .pweetImageTop {
+}
+
+.pweetImage {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.imgContainer button {
+  display: none;
+}
+
+.imgContainer label {
   border-radius: 9999px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  transition: 0.2s;
+}
+
+.imgContainer label:hover {
+  background-color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
 }
 
 .pweetInputContainer .pweetText {
@@ -129,6 +164,7 @@
 }
 
 .pweetContainer {
+  width: 100%;
   display: flex;
   padding-top: 5px;
   padding-bottom: 15px;
@@ -137,7 +173,7 @@
   border-bottom-color: rgb(47, 51, 54);
 }
 
-.pweetContainer img {
+.pweetContainer .profileImg {
   width: 48px;
   height: 48px;
   margin-top: 10px;
@@ -147,11 +183,14 @@
 }
 
 .pweetContainer .pweetTextContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #cccccc;
   font-size: 15px;
+
+  padding-right: 20px;
 }
 
 .pweetContainer .pweetTextContainer .pweetCreatorContainer {

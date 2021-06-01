@@ -50,16 +50,21 @@ const Pweet = ({ pweetObj, isOwner }) => {
         </>
       ) : (
         <div className="pweetContainer">
-          <img src={authService.currentUser.photoURL} />
+          <img className="profileImg" src={authService.currentUser.photoURL} />
           <div className="pweetTextContainer">
             <div className="pweetCreatorContainer">
-              <span>사용자</span>
+              <span>{pweetObj.creatorName}</span>
               <span className="pweetCreatorUid">@{pweetObj.creatorId}</span>
             </div>
 
             <h4>{pweetObj.text}</h4>
             {pweetObj.attachmentUrl && (
-              <img src={pweetObj.attachmentUrl} width="50px" height="50px" />
+              <img
+                className="pweetImage"
+                src={pweetObj.attachmentUrl}
+                width="50px"
+                height="50px"
+              />
             )}
             {isOwner && (
               <div className="pweetButtonContainer">

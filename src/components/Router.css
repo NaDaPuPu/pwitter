@@ -47,17 +47,3 @@
 .navContainer .navText {
   margin-left: 20px;
 }
-
-.profileContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.profileContainer form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
